@@ -7,11 +7,14 @@ class Student(db.Model):
     last_name = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
+    
+    # Relationships
+    reviews = db.relationship('Review', backref='student', lazy=True)
 
     def __init__(self, first_name, last_name, email, password):
         self.first_name = first_name
         self.last_name = last_name
-        self.validate_email(email)  # Validate email during initialization
+        self.validate_email(email)
         self.email = email
         self.password = password
 
@@ -22,7 +25,6 @@ class Student(db.Model):
         try:
             v = validate_email(email)
             email = v["email"]
-            # Check if the email domain is lpnu.ua
             if "lpnu.ua" not in email:
                 raise EmailNotValidError("Email domain must be @lpnu.ua")
         except EmailNotValidError as e:
