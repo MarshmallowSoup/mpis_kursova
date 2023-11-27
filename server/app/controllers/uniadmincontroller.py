@@ -1,5 +1,7 @@
 from app import db
 from app.models.uniadmin import UniversityAdmin
+from app.models.uniReview import UniversityReview
+
 
 class UniversityAdminController:
 
@@ -25,3 +27,14 @@ class UniversityAdminController:
         # Validate login credentials and return the admin if valid
         admin = UniversityAdmin.query.filter_by(username=username, password=password).first()
         return admin
+
+    def create_university_review(self, admin_id, professor_rating, course_rating, professor_id):
+        # Create a new university review
+        admin = UniversityAdmin.query.get(admin_id)
+        if admin:
+            new_review = UniversityReview(professor_rating=professor_rating, course_rating=course_rating, professor_id=professor_id)
+            db.session.add(new_review)
+            db.session.commit()
+            return new_review
+        else:
+            return None
