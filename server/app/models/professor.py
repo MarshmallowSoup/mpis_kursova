@@ -5,7 +5,8 @@ class Professor(db.Model):
     name = db.Column(db.String(100), nullable=False)
     subject = db.Column(db.String(50), nullable=False)
     university = db.Column(db.String(100), nullable=False)
-    rating = db.Column(db.Float, default=0.0)
+    student_rating = db.Column(db.Float, default=0.0)
+    university_rating = db.Column(db.Float, default=0.0)
     
     # Relationships
     reviews = db.relationship('Review', backref='professor', lazy=True)
