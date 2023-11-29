@@ -1,6 +1,5 @@
 from app import db
-from app.models.uniadmin import UniversityAdmin
-from app.models.uniReview import UniversityReview
+from models import UniversityAdmin, UniversityReview 
 
 
 class UniversityAdminController:
@@ -32,7 +31,7 @@ class UniversityAdminController:
         # Create a new university review
         admin = UniversityAdmin.query.get(admin_id)
         if admin:
-            new_review = UniversityReview(professor_rating=professor_rating, course_rating=course_rating, professor_id=professor_id)
+            new_review = UniversityReview(professor_rating=professor_rating, course_rating=course_rating, professor_id=professor_id, author_id=admin)
             db.session.add(new_review)
             db.session.commit()
             return new_review

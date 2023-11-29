@@ -1,5 +1,4 @@
-import psycopg2
-from psycopg2 import sql
+from app.controllers import AuthController, StudentController, ProfessorController
 
 # Replace these values with your PostgreSQL credentials
 db_params = {

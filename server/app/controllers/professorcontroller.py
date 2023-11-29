@@ -1,6 +1,5 @@
 from app import db
-from app.models import Professor, Review
-from sqlalchemy import func
+from models import Professor, Review
 
 class ProfessorController:
     def get_professor_by_id(self, professor_id):

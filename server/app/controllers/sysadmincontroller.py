@@ -1,5 +1,5 @@
 from app import db
-from app.models import Student, Professor, UniversityAdmin, Review, SystemAdmin
+from models import Student, Professor, UniversityAdmin, Review, SystemAdmin
 
 class SysAdminController:
 
@@ -20,6 +20,11 @@ class SysAdminController:
             return True
         else:
             return False
+
+    def validate_login_credentials(self, email, password):
+        # Validate login credentials and return the admin if valid
+        admin = SystemAdmin.query.filter_by(email=email, password=password).first()
+        return admin
 
     def delete_inappropriate_review(self, review_id):
         # Delete an inappropriate review by ID

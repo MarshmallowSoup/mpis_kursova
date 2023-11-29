@@ -1,7 +1,4 @@
-from models.student import Student
-from models.review import Review
-from models.professor import Professor
-from models.uniReview import UniversityReview
+from models import Student, Review, Professor, UniversityReview
 from app import db
 from sqlalchemy import func
 

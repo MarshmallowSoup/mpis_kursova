@@ -1,7 +1,5 @@
 from app import db
-from app.models.review import Review
-from app.models.student import Student 
-from app.models.professor import Professor
+from models import Review, Student, Professor
 
 
 class StudentController:
