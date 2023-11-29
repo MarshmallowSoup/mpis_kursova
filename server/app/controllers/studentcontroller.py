@@ -68,3 +68,12 @@ class StudentController:
         # Validate login credentials and return the student if valid
         student = Student.query.filter_by(email=email, password=password).first()
         return student
+
+    # Function to get a student by ID
+    def get_student_by_id(self, student_id):
+        return Student.query.get(student_id)
+     
+    def list_all_students(self):
+        # List all students
+        students = Student.query.all()
+        return students

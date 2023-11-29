@@ -37,3 +37,13 @@ class UniversityAdminController:
             return new_review
         else:
             return None
+
+
+    def list_all_university_admins(self):
+        # List all university admins
+        university_admins = UniversityAdmin.query.all()
+        return university_admins
+
+    # Function to get a university admin by ID
+    def get_university_admin_by_id(self, admin_id):
+        return UniversityAdmin.query.get(admin_id)

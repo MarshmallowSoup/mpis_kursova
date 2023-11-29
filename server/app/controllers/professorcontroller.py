@@ -12,6 +12,12 @@ class ProfessorController:
         reviews = Review.query.filter_by(professor_id=professor_id).all()
         return reviews
 
+
+    def list_all_professors(self):
+        # List all professors
+        professors = Professor.query.all()
+        return professors
+    
     def create_professor(self, name, email, subject, university):
         # Create a new professor
         new_professor = Professor(name=name, email=email, subject=subject, university=university)

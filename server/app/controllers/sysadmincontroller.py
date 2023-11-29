@@ -120,4 +120,20 @@ class SysAdminController:
     def list_all_system_admins(self):
         # List all system admins
         system_admins = SystemAdmin.query.all()
-        return system_admins
+        return system_admins    
+
+    # Function to get a student by ID
+    def get_student_by_id(self, student_id):
+        return Student.query.get(student_id)
+
+    # Function to get a professor by ID
+    def get_professor_by_id(self, professor_id):
+        return Professor.query.get(professor_id)
+
+    # Function to get a university admin by ID
+    def get_university_admin_by_id(self, admin_id):
+        return UniversityAdmin.query.get(admin_id)
+
+    # Function to get a system admin by ID
+    def get_system_admin_by_id(self, sysadmin_id):
+        return SystemAdmin.query.get(sysadmin_id)
