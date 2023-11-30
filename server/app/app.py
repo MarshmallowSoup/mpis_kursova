@@ -1,18 +1,8 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from database import db
-from models.uniadmin import UniversityAdmin
-from models.uniReview import UniversityReview
-from models.professor import Professor
-from models.sysadmin import SystemAdmin
-from models.review import Review
-from models.student import Student
-from controllers.analytics import Analytics
-from controllers.authcontroller import AuthController
-from controllers.professorcontroller import ProfessorController
-from controllers.studentcontroller import StudentController
-from controllers.sysadmincontroller import SysAdminController
-from controllers.uniadmincontroller import UniversityAdminController
+from models import UniversityAdmin, UniversityReview ,Professor, SystemAdmin, Review, Student
+from controllers import Analytics, AuthController, ProfessorController, StudentController, SysAdminController, UniversityAdminController
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://root:root@127.0.0.1:5432/prof_rating'
