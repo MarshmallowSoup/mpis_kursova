@@ -1,6 +1,8 @@
-from app import db
+from database import db
 
 class UniversityReview(db.Model):
+    __tablename__ = 'university_review'
+
     id = db.Column(db.Integer, primary_key=True)
     professor_rating = db.Column(db.Float, nullable=False)
     course_rating = db.Column(db.Float, nullable=False)

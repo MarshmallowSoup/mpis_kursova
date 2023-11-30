@@ -1,6 +1,10 @@
 from flask_login import LoginManager, login_user, logout_user, current_user
-from controllers import StudentController, ProfessorController, UniversityAdminController, SysAdminController
-from models import Student, Professor, UniversityAdmin, SystemAdmin
+from .studentcontroller import StudentController
+from .professorcontroller import ProfessorController
+from .uniadmincontroller import UniversityAdminController
+from .sysadmincontroller import SysAdminController
+from models  import Student, Professor, UniversityAdmin, SystemAdmin
+
 class AuthController:
     def __init__(self, app):
         self.login_manager = LoginManager()

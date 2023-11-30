@@ -1,4 +1,4 @@
-from app import db
+from database import db
 
 class Professor(db.Model):
     id = db.Column(db.Integer, primary_key=True)

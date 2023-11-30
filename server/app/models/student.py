@@ -1,4 +1,4 @@
-from app import db
+from database import db
 from email_validator import validate_email, EmailNotValidError
 
 class Student(db.Model):

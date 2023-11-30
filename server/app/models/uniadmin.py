@@ -1,6 +1,8 @@
-from app import db
+from database import db
 
 class UniversityAdmin(db.Model):
+    __tablename__ = 'uniadmin'
+
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
@@ -9,7 +11,8 @@ class UniversityAdmin(db.Model):
     password = db.Column(db.String(60), nullable=False)
     university = db.Column(db.String(100), nullable=False)
     
-    reviews = db.relationship('Review', backref='uniadmin', lazy=True)
+    reviews = db.relationship('UniversityReview', backref='uniadmin', lazy=True)
 
     def __repr__(self):
         return f"UniversityAdmin('{self.username}', '{self.email}', '{self.university}')"
+

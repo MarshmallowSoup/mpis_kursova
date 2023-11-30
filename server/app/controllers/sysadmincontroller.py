@@ -1,5 +1,5 @@
-from app import db
-from models import Student, Professor, UniversityAdmin, Review, SystemAdmin
+from database import db
+from models  import Student, Professor, UniversityAdmin, Review, SystemAdmin
 
 class SysAdminController:
 

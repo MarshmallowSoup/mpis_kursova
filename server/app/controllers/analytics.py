@@ -1,5 +1,5 @@
 from models import Student, Review, Professor, UniversityReview
-from app import db
+from database import db
 from sqlalchemy import func
 
 class Analytics:
