@@ -11,3 +11,10 @@ class SystemAdmin(db.Model):
 
     def get_id(self):
         return str(self.id)
+    
+    def serialize(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email
+        }
