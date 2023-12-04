@@ -11,3 +11,6 @@ class UniversityReview(db.Model):
 
     def __repr__(self):
         return f"UniversityReview(professor_rating={self.professor_rating}, course_rating={self.course_rating})"
+
+    def get_id(self):
+        return str(self.id)

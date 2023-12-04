@@ -11,3 +11,6 @@ class Review(db.Model):
 
     def __repr__(self):
         return f"Review('{self.rating}', '{self.comment[:20]}', '{self.anonymous}')"
+    
+    def get_id(self):
+        return str(self.id)

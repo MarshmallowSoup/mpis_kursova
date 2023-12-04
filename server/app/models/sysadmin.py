@@ -8,3 +8,6 @@ class SystemAdmin(db.Model):
 
     def __repr__(self):
         return f"SystemAdmin('{self.username}', '{self.email}')"
+
+    def get_id(self):
+        return str(self.id)

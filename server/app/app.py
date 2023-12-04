@@ -9,9 +9,12 @@ from models import UniversityAdmin, UniversityReview, Professor, SystemAdmin, Re
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://root:root@127.0.0.1:5432/prof_rating'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = 'your_secret_key_here'
 
 # Register Blueprints
 app.register_blueprint(auth_blueprint, url_prefix='/auth')
+app.register_blueprint(auth_blueprint, url_prefix='/student')
+
 
 # Initialize Flask-Login
 login_manager = LoginManager()

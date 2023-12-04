@@ -30,6 +30,10 @@ class Student(db.Model):
         except EmailNotValidError as e:
             raise ValueError(str(e))
 
+
+    def get_id(self):
+        return str(self.id)
+    
     @property
     def is_active(self):
         # For simplicity, always return True. You might implement more

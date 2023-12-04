@@ -15,3 +15,6 @@ class Professor(db.Model):
 
     def __repr__(self):
         return f"Professor('{self.name}', '{self.subject}', '{self.university}')"
+
+    def get_id(self):
+        return str(self.id)

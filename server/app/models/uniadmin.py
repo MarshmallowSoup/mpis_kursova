@@ -16,3 +16,6 @@ class UniversityAdmin(db.Model):
     def __repr__(self):
         return f"UniversityAdmin('{self.username}', '{self.email}', '{self.university}')"
 
+
+    def get_id(self):
+        return str(self.id)
