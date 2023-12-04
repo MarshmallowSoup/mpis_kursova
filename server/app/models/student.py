@@ -29,3 +29,9 @@ class Student(db.Model):
                 raise EmailNotValidError("Email domain must be @lpnu.ua")
         except EmailNotValidError as e:
             raise ValueError(str(e))
+
+    @property
+    def is_active(self):
+        # For simplicity, always return True. You might implement more
+        # sophisticated logic here based on your application's requirements.
+        return True

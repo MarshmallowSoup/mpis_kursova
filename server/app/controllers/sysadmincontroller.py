@@ -76,8 +76,9 @@ class SysAdminController:
 
         # Return the created admin object
         return new_admin
-
-    def create_sysadmin(self, username, email, password):
+    
+    @staticmethod
+    def create_sysadmin(username, email, password):
         # Create a new system admin
         new_sysadmin = SystemAdmin(username=username, email=email, password=password)
 

@@ -18,9 +18,10 @@ class ProfessorController:
         professors = Professor.query.all()
         return professors
     
-    def create_professor(self, name, email, subject, university):
+    @staticmethod
+    def create_professor(name, email, password, subject, university):
         # Create a new professor
-        new_professor = Professor(name=name, email=email, subject=subject, university=university)
+        new_professor = Professor(name=name, email=email, password=password, subject=subject, university=university)
 
         # Add the new professor to the database session
         db.session.add(new_professor)
@@ -46,3 +47,10 @@ class ProfessorController:
         # Validate login credentials and return the professor if valid
         professor = Professor.query.filter_by(email=email, password=password).first()
         return professor
+    
+    def submit_answer(self, answer, review_id):
+        # Submit an answer for a professor
+        review = Review.query.get(review_id)
+        review.answer = answer
+        db.session.commit()
+        return review

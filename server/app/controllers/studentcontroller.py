@@ -1,16 +1,22 @@
 from database import db
 from models import Review, Student, Professor
+from email_validator import validate_email, EmailNotValidError
 
 
 class StudentController:
-
-    def create_student(self, first_name, last_name, email, password):
+    
+    @staticmethod
+    def create_student(first_name, last_name, email, password):
         try:
-            # Validate the email
-            self.validate_email(email)
+            # Validate the first_name and last_name parameters
+            if not first_name or not last_name:
+                raise ValueError("First name and last name are required.")
 
             # Create a new student object
-            new_student = Student(first_name=first_name, last_name=last_name, email=email, password=password)
+            try:
+                new_student = Student(first_name=first_name, last_name=last_name, email=email, password=password)
+            except Exception as e:
+                raise ValueError("Error creating student object: {}".format(e))
 
             # Add the new student to the database session
             db.session.add(new_student)
@@ -21,8 +27,8 @@ class StudentController:
             # Return the created student object
             return new_student
         except ValueError as e:
-            # Handle validation error
-            return str(e)
+        # Handle validation error
+           return str(e)
 
 
     def get_student_reviews(self, student_id):
@@ -64,7 +70,9 @@ class StudentController:
         professor = Professor.query.get(professor_id)
         return professor
     
-    def validate_login_credentials(self, email, password):
+
+    @staticmethod    
+    def validate_login_credentials(email, password):
         # Validate login credentials and return the student if valid
         student = Student.query.filter_by(email=email, password=password).first()
         return student

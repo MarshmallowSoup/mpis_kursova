@@ -5,6 +5,7 @@ class Review(db.Model):
     rating = db.Column(db.Float, nullable=False)
     comment = db.Column(db.Text)
     anonymous = db.Column(db.Boolean, default=False)
+    answer = db.Column(db.Text)
     student_id = db.Column(db.Integer, db.ForeignKey('student.id'), nullable=False)
     professor_id = db.Column(db.Integer, db.ForeignKey('professor.id'), nullable=False)
 

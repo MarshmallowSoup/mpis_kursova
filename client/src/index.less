@@ -1,0 +1,57 @@
+.flexbox(@flex-direction: row, @justify-content: flex-start, @align-items: flex-start) {
+    display: flex;
+    flex-direction: @flex-direction;
+    justify-content: @justify-content;
+    align-items: @align-items;
+}
+
+p {
+    margin: 0px;
+}
+
+.lab {
+    input {
+        width: 500px;
+    }
+
+    .headings {
+        color: deeppink;
+    }
+
+    .lab-task {
+        .flexbox(column)
+    }
+
+    .sub-container {
+        min-height: 50px;
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 25px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 50px;
+    }
+
+    .button {
+        .flexbox(row, center, center);
+        margin: 10px 0px;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: deeppink;
+        cursor: pointer;
+
+        &:hover,
+        &:active {
+            background-color: greenyellow;
+            color: black;
+        }
+    }
+}

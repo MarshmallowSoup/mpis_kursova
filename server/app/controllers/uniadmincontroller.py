@@ -4,7 +4,8 @@ from models import UniversityAdmin, UniversityReview
 
 class UniversityAdminController:
 
-    def create_university_admin(self, first_name, last_name, username, email, password, university):
+    @staticmethod
+    def create_university_admin(first_name, last_name, username, email, password, university):
         # Create a new university admin
         new_admin = UniversityAdmin(first_name=first_name, last_name=last_name, username=username, email=email, password=password, university=university)
 
@@ -22,7 +23,8 @@ class UniversityAdminController:
         admin = UniversityAdmin.query.filter_by(username=username).first()
         return admin
 
-    def validate_login_credentials(self, username, password):
+    @staticmethod
+    def validate_login_credentials(username, password):
         # Validate login credentials and return the admin if valid
         admin = UniversityAdmin.query.filter_by(username=username, password=password).first()
         return admin
