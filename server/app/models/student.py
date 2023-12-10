@@ -39,3 +39,12 @@ class Student(db.Model):
         # For simplicity, always return True. You might implement more
         # sophisticated logic here based on your application's requirements.
         return True
+    
+
+    def serialize(self):
+        return {
+            'id': self.id,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'email': self.email
+        }

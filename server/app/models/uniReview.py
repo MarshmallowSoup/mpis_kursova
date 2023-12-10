@@ -14,3 +14,12 @@ class UniversityReview(db.Model):
 
     def get_id(self):
         return str(self.id)
+    
+    def serialize(self):
+        return {
+            'id': self.id,
+            'professor_rating': self.professor_rating,
+            'course_rating': self.course_rating,
+            'professor_id': self.professor_id,
+            'author_id': self.author_id
+        }

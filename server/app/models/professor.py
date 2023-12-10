@@ -18,3 +18,14 @@ class Professor(db.Model):
 
     def get_id(self):
         return str(self.id)
+
+    def serialize(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'email': self.email,
+            'subject': self.subject,
+            'university': self.university,
+            'student_rating': self.student_rating,
+            'university_rating': self.university_rating
+        }
