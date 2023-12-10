@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from routes import auth_blueprint
+from routes import auth_blueprint,student_blueprint, university_admin_blueprint, sysadmin_blueprint
 from controllers import Analytics, AuthController, ProfessorController, StudentController, SysAdminController, UniversityAdminController
 from database import db
 from models import UniversityAdmin, UniversityReview, Professor, SystemAdmin, Review, Student
@@ -13,7 +13,9 @@ app.config['SECRET_KEY'] = 'your_secret_key_here'
 
 # Register Blueprints
 app.register_blueprint(auth_blueprint, url_prefix='/auth')
-app.register_blueprint(auth_blueprint, url_prefix='/student')
+app.register_blueprint(student_blueprint, url_prefix='/student')
+app.register_blueprint(university_admin_blueprint, url_prefix='/uniadmin')
+app.register_blueprint(sysadmin_blueprint, url_prefix='/sysadmin')
 
 
 # Initialize Flask-Login

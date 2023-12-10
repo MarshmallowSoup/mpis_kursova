@@ -2,10 +2,11 @@ from flask import Blueprint, request, jsonify
 from controllers import StudentController
 
 # Create a Blueprint instance
-student_blueprint = Blueprint('student', __name__)
 
 # Initialize the StudentController
 student_controller = StudentController()
+# Create a Blueprint instance
+student_blueprint = Blueprint('student', __name__)
 
 # Route to create a new student
 @student_blueprint.route('/create', methods=['POST'])
